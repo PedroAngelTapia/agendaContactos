@@ -9,6 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+//1.6 Implementa la funcionalidad para editar un contacto existente
+//1.7 Implementa la funcionalidad para eliminar un contacto
+//1.10 Implementa redirecciones y mensajes de confirmación tras la creación, edición o eliminación de un contacto
 // Controlador encargado de manejar las peticiones web
 @Controller
 public class ContactoController {
@@ -23,7 +26,7 @@ public class ContactoController {
         model.addAttribute("contacto", new Contacto()); // Formulario
         return "index";
     }
-
+    // 1.4 Implementa un controlador que permita gestionar el formulario de creación de contactos y la lista de contactos
     // Guarda un nuevo contacto con validación de datos
     @PostMapping("/guardar")
     public String guardarContacto(@Valid @ModelAttribute Contacto contacto, BindingResult result, Model model) {
@@ -59,3 +62,14 @@ public class ContactoController {
         return "redirect:/?success=Contacto+eliminado";
     }
 }
+/* Métodos:
+
+@GetMapping("/"): lista contactos y muestra formulario
+
+@PostMapping("/guardar"): guarda nuevo contacto
+
+@GetMapping("/editar/{id}"): carga formulario de edición
+
+@PostMapping("/actualizar/{id}"): guarda cambios
+
+@GetMapping("/eliminar/{id}"): elimina contacto*/

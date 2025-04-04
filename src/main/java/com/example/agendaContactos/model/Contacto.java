@@ -3,6 +3,8 @@ package com.example.agendaContactos.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
+//1.2 Define una entidad JPA que represente un contacto en la base de datos
+//1.9 Añade validación de datos en el formulario de creación de contactos
 @Entity
 public class Contacto {
 
