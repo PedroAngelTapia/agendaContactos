@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Agenda de Contactos</title></head>
+<body>
+<h1>Agenda de Contactos</h1>
+
+<!-- Muestra mensaje de éxito -->
+<div th:if="${param.success}" th:text="${param.success}"></div>
+
+<!-- Formulario para añadir contacto -->
+<form th:action="@{/guardar}" th:object="${contacto}" method="post">
+    <p><input th:field="*{nombre}" placeholder="Nombre"/> <span th:errors="*{nombre}"></span></p>
+    <p><input th:field="*{telefono}" placeholder="Teléfono"/> <span th:errors="*{telefono}"></span></p>
+    <p><input th:field="*{email}" placeholder="Correo electrónico"/> <span th:errors="*{email}"></span></p>
+    <button type="submit">Guardar</button>
+</form>
+
+<!-- Tabla con todos los contactos -->
+<h2>Contactos</h2>
+<table>
+    <tr><th>Nombre</th><th>Teléfono</th><th>Email</th><th>Acciones</th></tr>
+    <tr th:each="contacto : ${contactos}">
+        <td th:text="${contacto.nombre}"></td>
+        <td th:text="${contacto.telefono}"></td>
+        <td th:text="${contacto.email}"></td>
+        <td>
+            <a th:href="@{/editar/{id}(id=${contacto.id})}">Editar</a>
+            <a th:href="@{/eliminar/{id}(id=${contacto.id})}">Eliminar</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
