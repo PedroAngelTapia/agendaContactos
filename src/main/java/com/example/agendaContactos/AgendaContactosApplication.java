@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AgendaContactosApplication {
 
-	// Método main para arrancar la aplicación
+	// Metodo main para arrancar la aplicación
 	public static void main(String[] args) {
 		SpringApplication.run(AgendaContactosApplication.class, args);
 	}
